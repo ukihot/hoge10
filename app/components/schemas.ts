@@ -168,10 +168,15 @@ export type MatchEventWithSystemData = MatchEventSchemaType & {
 	raiderHeight: number;
 	raiderWeight: number;
 	raiderTeamName: string;
+	raiderJerseyNumber: number;
 	gained: number;
 	lost: number;
 	defeatedDefenders: PlayerSchemaType[];
 	revivedDefenders: PlayerSchemaType[];
+	tacklerName: string | null;
+	tacklerHeight: number | null;
+	tacklerWeight: number | null;
+	tacklerJerseyNumber: number | null;
 };
 
 export type MatchDataWithEvents = {

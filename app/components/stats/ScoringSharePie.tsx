@@ -9,11 +9,11 @@ import {
 	YAxis,
 } from "recharts";
 import type { MatchDataWithEvents } from "~/components/schemas";
-import { trackDefenderCount } from "~/components/stats/track-defenders";
+import { mergeGainedPoints } from "./merge-gained-point";
 
 /* 合計点を選手ごとに振る */
 export const ScoringSharePie = ({ data }: { data: MatchDataWithEvents }) => {
-	const transformedData = trackDefenderCount(data.events);
+	const transformedData = mergeGainedPoints(data.events);
 
 	return (
 		<ResponsiveContainer className="p-2 w-full h-hull">

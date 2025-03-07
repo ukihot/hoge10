@@ -104,6 +104,12 @@ export default function GazerPage() {
 			return reviver as PlayerSchemaType;
 		});
 
+		const tackler = formData.tackleBy
+			? parsedData?.dogPlayers
+					.concat(parsedData.catPlayers)
+					.find((player) => player.id === formData.tackleBy)
+			: null;
+
 		const eventWithSystemData: MatchEventWithSystemData = {
 			...formData,
 			id: index + 1,
@@ -111,10 +117,15 @@ export default function GazerPage() {
 			raiderHeight: raider.height,
 			raiderWeight: raider.weight,
 			raiderTeamName,
+			raiderJerseyNumber: raider.jerseyNumber,
 			gained: gainedPoints,
 			lost: lostPoints,
 			defeatedDefenders,
 			revivedDefenders,
+			tacklerName: tackler?.playerName ?? null,
+			tacklerHeight: tackler?.height ?? null,
+			tacklerWeight: tackler?.weight ?? null,
+			tacklerJerseyNumber: tackler?.jerseyNumber ?? null,
 		};
 
 		setMatchEvents((prevEvents) => {
